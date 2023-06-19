@@ -12,6 +12,7 @@
 
 using namespace std;
 
+// 数据库封装
 class MySqlConn
 {
 public:

@@ -18,7 +18,7 @@ pair<int, string> MySqlConn::queryUser(const string& account,
                 + "\"" + password + "\"";
     pair<int, string> user;
     int res = mysql_query(conn, querySql.data());
-    if(!res){   // 如果查询到了
+    if(!res){   // 执行成功
         MYSQL_RES* result = mysql_store_result(conn);
         if(result && mysql_num_rows(result)){
             MYSQL_ROW row = mysql_fetch_row(result);
@@ -35,6 +35,7 @@ bool MySqlConn::queryUser(const string& account)
     string querySql = "select account from user where account = " + account;
     int res = mysql_query(conn, querySql.data());
     bool flag = false;
+    return res == 0;
     if(!res){
         MYSQL_RES* result = mysql_store_result(conn);
         if(result && mysql_num_rows(result))
