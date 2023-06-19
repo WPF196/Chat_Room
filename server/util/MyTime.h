@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// 时间类封装
 class MyTime
 {
 public:
