@@ -22,5 +22,5 @@ gcc char_clnt.c -o clnt -lpthread
 ```
 -----
 ### 运行结果
-![运行](./img/res1.png)
-![图片传输](./img/res2.png)
+![运行](./z_rdme_img/res1.png)
+![图片传输](./z_rdme_img/res2.png)
