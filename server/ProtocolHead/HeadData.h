@@ -4,22 +4,18 @@
 #include <unistd.h>
 #include <iostream>
 
-#define HEAD_BUFFER_SIZE 8      // 头部
-#define PROTOCOL_ID_SIZE 1      // 协议
-#define ACCOUNT_SIZE 2          // 账户
-#define DATA_TYPE_SIZE 1        // 数据类型
-#define DATA_SIZE 4             // 数据大小
+#include "protocolmsg.h"
 
 using namespace std;
 
-// 消息头类，包含协议号、账号信息、数据类型和数据长度等信息。
+// 消息头类 = 协议号 + 账号 + 信息数据类型 + 数据长度
 class HeadData
 {
 private:
     // 将指定长度的字符转换（解析）为整数
     unsigned int parseInt(int len);
     // 从缓冲区解析消息头。
-    bool baseParse();
+    void baseParse();
 
 public:
     HeadData();
@@ -27,7 +23,7 @@ public:
     ~HeadData();
 
     // 从给定的缓冲区解析消息头
-    bool parse(const char* buffer);
+    void parse(const char* buffer);
 
     unsigned int getProtocolId();
     unsigned int getAccount();

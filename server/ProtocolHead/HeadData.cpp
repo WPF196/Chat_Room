@@ -13,7 +13,7 @@ unsigned int HeadData::parseInt(int len)
     return sum;
 }
 
-bool HeadData::baseParse()
+void HeadData::baseParse()
 {
     // 顺序解析头部所有信息
     this->protocolId = parseInt(PROTOCOL_ID_SIZE);
@@ -34,7 +34,7 @@ HeadData::HeadData(int fd)
 HeadData::~HeadData()
 {}
 
-bool HeadData::parse(const char* buffer)
+void HeadData::parse(const char* buffer)
 {
     bp = buffer;
     baseParse();
@@ -55,4 +55,20 @@ unsigned int HeadData::getDataType()
 unsigned int HeadData::getDataLength()
 {
     return this->dataLength;
+}
+
+
+int main(){
+    unsigned int protocolId = 1; 
+    unsigned int account = 12345;
+    unsigned int type = TEXT;
+    unsigned int length = 22;
+
+    HeadData a;
+    
+    cout << a.getProtocolId() << endl;
+    cout << a.getAccount() << endl;
+    cout << a.getDataType() << endl;
+    cout << a.getDataLength() << endl;
+    return 0;
 }
