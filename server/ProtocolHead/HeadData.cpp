@@ -57,18 +57,20 @@ unsigned int HeadData::getDataLength()
     return this->dataLength;
 }
 
-
+/*
 int main(){
-    unsigned int protocolId = 1; 
-    unsigned int account = 12345;
-    unsigned int type = TEXT;
-    unsigned int length = 22;
+    char s[] = {'\n', 
+                '\n', '\n', 
+                '0', 
+                '\0', '\0', '\0', '\n'};
 
     HeadData a;
+    a.parse(s);
     
-    cout << a.getProtocolId() << endl;
-    cout << a.getAccount() << endl;
-    cout << a.getDataType() << endl;
-    cout << a.getDataLength() << endl;
+    cout << a.getProtocolId() << endl;  // 10
+    cout << a.getAccount() << endl;     // 2570
+    cout << a.getDataType() << endl;    // 48
+    cout << a.getDataLength() << endl;  // 10
     return 0;
 }
+*/
