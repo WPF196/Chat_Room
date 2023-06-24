@@ -1,6 +1,6 @@
 #pragma once
 
-#include "util/MySqlConn.h"
+#include "../util/MySqlConn.h"
 
 using namespace std;
 
